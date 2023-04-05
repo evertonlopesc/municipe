@@ -1,24 +1,50 @@
-# README
+# README - Municipe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descrição
 
-Things you may want to cover:
+Cadastrar pessoas por municípios, informando dados da pessoa e o seu endereço.
 
-* Ruby version
+## Instalação
 
-* System dependencies
+Dependências
 
-* Configuration
+- git
+- Docker
 
-* Database creation
+Clonando o repositório
 
-* Database initialization
+```sh
+git clone git@github.com:evertonlopesc/municipe.git
+```
 
-* How to run the test suite
+Montando a imagem do projeto
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+docker compose build
+```
 
-* Deployment instructions
+Subindo o container
 
-* ...
+```sh
+# Visualizando os logs:
+docker compose up
+```
+
+```sh
+# Sem visualizar os logs:
+docker compose up -d
+```
+
+Criando o banco de dados
+
+```sh
+docker compose run web rails db:setup
+```
+
+## Ferramentas
+
+- Ruby on Rails
+- PostgreSQL
+- Git
+- Github
+- Docker
