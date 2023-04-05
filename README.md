@@ -20,6 +20,10 @@ git clone git@github.com:evertonlopesc/municipe.git && cd municipe
 Montando a imagem do projeto
 
 ```sh
+sudo chown -R $USER:$USER .
+```
+
+```sh
 docker compose build
 ```
 
