@@ -14,7 +14,7 @@ Dependências
 Clonando o repositório
 
 ```sh
-git clone git@github.com:evertonlopesc/municipe.git
+git clone git@github.com:evertonlopesc/municipe.git && cd municipe
 ```
 
 Montando a imagem do projeto
