@@ -1,26 +1,54 @@
-# Tarefas
+# Tasks
 
-## Configurar os testes
+## Test configuration
 
 - fivemat
 - Adicionar factory_bot
 
-## Criar o model County
+## Create County model
 
-Run
+**Generate**
 
 > rails generate model County name id_ibge:integer state status
 
-## Criar o model Person name
+**Validations**
 
-Run
+- name:     [*string, presence*]
+- id_ibge:  [*integer, presence, 7 digits,*]
+- state:    [*string, presence*]
+- status:   [*string, default: active*]
+
+## Create Person model
+
+**Generate**
 
 > rails generate model Person full_name cpf cns email birthday:date phone status address:references
 
-Obs.: depois acrescentar o campo *photo*
+**Validations**
 
-## Criar o model Address
+- full_name: [*string, presence*]
+- CPF:       [*string, presence, valid?*]
+- CNS:       [*string, presence, valid?, 15 digits, numerics*]
+- email:     [*string, presence, valid?*]
+- birthday:  [*date, presence, valid?*]
+- phone:     [*string, presence*]
+- status:    [*string, default: active*]
+- address:   [*foreign_key, presence*]
 
-Run
+*Obs.: after add photo **field***
+
+## Create Address model
+
+**Generate**
 
 > rails generate model Address cep:integer street number complement neighborhood status county:references
+
+**Validations**
+
+- cep:          [*integer, presence*]
+- street:       [*string, presence*]
+- number:       [*string, presence*]
+- complement:   [*string, presence*]
+- neighborhood: [*string, presence*]
+- status:       [*string, default: active*]
+- county:       [*foreign_key, presence*]
