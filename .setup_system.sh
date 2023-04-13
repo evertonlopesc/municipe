@@ -17,3 +17,6 @@ echo -e "\e[31;43m ***** Create Database *****\e[0m"
 docker compose run web rails db:create
 docker compose run web rails db:setup
 echo ""
+echo -e "\e[31;43m ***** Run tests *****\e[0m"
+docker compose run web rails test
+echo ""
