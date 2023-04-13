@@ -5,7 +5,7 @@ sudo chown -R $USER:USER .
 docker compose build
 echo ""
 echo -e "\e[31;43m***** Container Up *****\e[0m"
-docker compose up
+docker compose up -d
 echo ""
 echo -e "\e[31;43m ***** Create Database *****\e[0m"
 docker compose run web rails db:setup
