@@ -1,5 +1,10 @@
 # Tasks
 
+## Build project with docker
+
+- Create Dockerfile (using rubuy 3.2.2)
+- Create docker-compose (add web and db)
+
 ## Test configuration
 
 - fivemat
