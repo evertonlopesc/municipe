@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "\e[31;43m***** Mount Project Image *****\e[0m"
-sudo chown -R $USER:USER .
+sudo chown -R $USER:$USER .
 docker compose build
 echo ""
 echo -e "\e[31;43m***** Create env file *****\e[0m"
