@@ -6,19 +6,16 @@ module Fertilizer
 
     def self.call
       puts "Read file municipios.csv"
-      file = File.open("#{Rails.root}/db/fertilizer/municipios.csv")
+      path = File.join("#{Rails.root}", "db", "fertilizer", "municipios.csv")
 
       puts "Populating to the County table..."
-      CSV.foreach(file, headers: true, header_converters: :symbol) do |row|
+      CSV.foreach(path, headers: true, header_converters: :downcase) do |row|
         County::Record.create_or_find_by(
           name: row[:nome_municpio],
           id_ibge: row[:cdigo_municpio_completo],
           state: row[:nome_uf]
         )
       end
-
-      puts "Close file municipios.csv"
-      file.close
 
       puts "County created successfully!"
     end
