@@ -1,29 +1,25 @@
 # README - Municipe
 
-## Descrição
+## Description
 
-Cadastrar pessoas por municípios, informando dados da pessoa e o seu endereço.
+Registration of people by municipality.
 
-## Instalação
+## Installation
 
-Dependências
+Dependencies
 
-- git
-- Docker
+- [Git - installation link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Docker - installation link](https://docs.docker.com/get-docker/)
 
-Clonando o repositório
-
-```sh
-git clone git@github.com:evertonlopesc/municipe.git && cd municipe
-```
-
-Criando a imagem do projeto
+Clone and create the project image.
 
 ```sh
-./.setup_system.sh
+git clone git@github.com:evertonlopesc/municipe.git \
+  && cd municipe \
+  && ./.setup_system.sh
 ```
 
-## Ferramentas
+## Tools
 
 - Ruby on Rails
 - PostgreSQL
