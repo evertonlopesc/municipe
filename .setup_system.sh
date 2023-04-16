@@ -9,10 +9,11 @@ touch ./.env
 echo "POSTGRES_HOST=db
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres" >> ./.env
+echo "Create env file successfully!"
 echo ""
 echo -e "\e[97;100m***** Container Up *****\e[0m"
 docker compose up -d
-docker ps
+docker compose ls
 echo ""
 echo -e "\e[97;100m ***** Create Database *****\e[0m"
 docker compose run web rails db:create
