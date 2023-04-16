@@ -13,6 +13,10 @@ WORKDIR /municipe
 COPY Gemfile Gemfile Gemfile.lock .
 RUN gem update bundle && bundle install
 
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
 EXPOSE 3000
 
 # Configure the main process to run when running the image
