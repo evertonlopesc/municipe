@@ -16,9 +16,9 @@ docker compose up -d
 docker compose ls
 echo ""
 echo -e "\e[97;100m ***** Create Database *****\e[0m"
-docker compose run web rails db:create
-docker compose run web rails db:setup
+docker compose exec web rails db:create
+docker compose exec web rails db:setup
 echo ""
 echo -e "\e[97;100m ***** Run tests *****\e[0m"
-docker compose run web rspec
+docker compose exec web rspec
 echo ""
