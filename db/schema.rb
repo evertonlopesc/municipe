@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_05_193044) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_184156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "counties", force: :cascade do |t|
     t.string "name"
-    t.integer "id_ibge"
+    t.string "id_ibge"
     t.string "state"
     t.string "status", default: "active"
     t.datetime "created_at", null: false
