@@ -2,15 +2,19 @@ require 'rails_helper'
 
 RSpec.describe County::Record, type: :model do
   describe "instances" do
-    subject(:county) { FactoryBot.build(:county) }
-
     context "when build a county" do
       it "return valid" do
+        county = FactoryBot.build(:county)
         expect(county).to be_valid
       end
 
       it "return active status" do
+        county = County::Record.new
         expect(county.active?).to be true
+      end
+
+      context 'associations' do
+        it { should have_many(:addresses) }
       end
     end
   end
