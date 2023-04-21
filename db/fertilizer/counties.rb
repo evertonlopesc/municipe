@@ -11,9 +11,9 @@ module Fertilizer
       puts "Populating to the County table..."
       CSV.foreach(path, headers: true, header_converters: :downcase) do |row|
         County::Record.create_or_find_by(
-          name: row[:nome_municpio],
-          id_ibge: row[:cdigo_municpio_completo],
-          state: row[:nome_uf]
+          name: row["nome município"],
+          id_ibge: row["código município completo"].to_s,
+          state: row["nome_uf"]
         )
       end
 
