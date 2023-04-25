@@ -1,0 +1,16 @@
+<h1>New person</h1>
+
+<%= render(
+  partial: "form",
+  locals: {
+    person: @person,
+    path: people_path,
+    scope: :person,
+  })
+%>
+
+<br>
+
+<div>
+  <%= link_to "Back to people", people_path %>
+</div>

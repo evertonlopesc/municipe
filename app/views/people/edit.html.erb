@@ -1,0 +1,17 @@
+<h1>Editing person</h1>
+
+<%= render(
+  partial: "form",
+  locals: {
+    person: @person,
+    path: person_path,
+    scope: :person,
+  })
+%>
+
+<br>
+
+<div>
+  <%= link_to "Show this person", person_path(@person) %> |
+  <%= link_to "Back to people", people_path %>
+</div>

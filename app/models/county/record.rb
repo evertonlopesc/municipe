@@ -4,15 +4,12 @@ module County
 
     has_many :addresses, class_name: '::Address::Record',
                          foreign_key: 'county_id'
+    has_many :people, class_name: 'Person', through: :addresses
 
     enum status: { active: 'Ativo', inactive: 'Inativo' }, _default: :active
 
-    validates :id_ibge, {
-      presence: true,
-      numericality: { only_integer: true },
-      length: { is: 7 }
-    }
-    validates :name, presence: true
-    validates :state, presence: true
+    validates_length_of :id_ibge, is: 7
+    validates_numericality_of :id_ibge, only_integer: true
+    validates_presence_of :id_ibge, :name, :state
   end
 end

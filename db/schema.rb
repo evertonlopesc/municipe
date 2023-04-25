@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_194340) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_21_103533) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
@@ -36,5 +37,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_20_194340) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "people", force: :cascade do |t|
+    t.string "full_name"
+    t.string "cpf"
+    t.string "cns"
+    t.string "email"
+    t.date "birthday", default: "2023-04-22"
+    t.string "phone"
+    t.string "status", default: "active"
+    t.bigint "address_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_people_on_address_id"
+    t.index ["email"], name: "index_people_on_email", unique: true
+    t.index ["full_name"], name: "index_people_on_full_name", unique: true
+  end
+
   add_foreign_key "addresses", "counties"
+  add_foreign_key "people", "addresses"
 end
