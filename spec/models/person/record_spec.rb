@@ -11,8 +11,8 @@ RSpec.describe Person::Record, type: :model do
     end
 
     context 'associations' do
-      it { should belong_to(:address) }
-      it { should have_one(:county) }
+      it { should belong_to(:address).class_name("Address::Record") }
+      it { should have_one(:county).class_name("County::Record").through(:address) }
     end
   end
 

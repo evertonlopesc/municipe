@@ -2,15 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "people/new", type: :view do
   before(:each) do
-    assign(:person, Person.new(
-      full_name: "MyString",
-      cpf: "MyString",
-      cns: "MyString",
-      email: "MyString",
-      phone: "MyString",
-      status: "MyString",
-      address: nil
-    ))
+    assign(:person, FactoryBot.create(:person))
   end
 
   it "renders new person form" do

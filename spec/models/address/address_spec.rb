@@ -15,7 +15,8 @@ RSpec.describe Address::Record, type: :model do
       end
 
       context 'associations' do
-        it { should belong_to(:county) }
+        it { should belong_to(:county).class_name("County::Record") }
+        it { should have_many(:people).class_name("Person::Record").with_foreign_key("address_id") }
       end
     end
   end

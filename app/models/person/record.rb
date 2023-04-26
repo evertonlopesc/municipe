@@ -1,16 +1,15 @@
 module Person
   class Record < ApplicationRecord
-    self.table_name = 'people'
+    self.table_name = "people"
 
-    belongs_to :address, class_name: 'Address::Record'
-    has_one :county, class_name: 'County::Record', through: :address
+    belongs_to :address, class_name: "Address::Record"
+    has_one :county, class_name: "County::Record", through: :address
 
     enum status: {
-      active: 'Ativo',
-      inactive: 'Inativo'
+      active: "Ativo",
+      inactive: "Inativo"
     }, _default: :active
 
-    # Validations
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates_length_of :cns, is: 15
     validates_numericality_of :cns, only_integer: true
@@ -26,7 +25,7 @@ module Person
       return if birthday.nil?
       return if birthday <= Date.current
 
-      errors.add(:birthday, 'deve ter a data menor que hoje!')
+      errors.add(:birthday, "deve ter a data menor que hoje!")
     end
 
     def cns_allowed
@@ -54,13 +53,13 @@ module Person
         result = "#{pis}000#{dv}"
       end
 
-      errors.add(:cns, 'inválido!') unless cns == result
+      errors.add(:cns, "inválido!") unless cns == result
     end
 
     def sum_cns_digits(pis:, cns:)
       aggregate = 0
 
-      pis.split(//).each_index do |index|
+      pis.chars.each_index do |index|
         break if (cns.length - index) == 4
 
         aggregate += (pis[index].to_i * (cns.length - index))
@@ -72,11 +71,11 @@ module Person
     def cns_prov_valid(cns:)
       aggregate = 0
 
-      cns.split(//).each_index do |index|
+      cns.chars.each_index do |index|
         aggregate += cns[index].to_i * (cns.length - index)
       end
 
-      errors.add(:cns, 'inválido!') unless (aggregate % 11).zero?
+      errors.add(:cns, "inválido!") unless (aggregate % 11).zero?
     end
   end
 end

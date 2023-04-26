@@ -2,9 +2,8 @@ module County
   class Record < ApplicationRecord
     self.table_name = 'counties'
 
-    has_many :addresses, class_name: '::Address::Record',
-                         foreign_key: 'county_id'
-    has_many :people, class_name: 'Person', through: :addresses
+    has_many :addresses, class_name: '::Address::Record', foreign_key: 'county_id'
+    has_many :people, class_name: 'Person::Record', through: :addresses
 
     enum status: { active: 'Ativo', inactive: 'Inativo' }, _default: :active
 

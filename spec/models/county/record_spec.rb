@@ -14,7 +14,8 @@ RSpec.describe County::Record, type: :model do
       end
 
       context 'associations' do
-        it { should have_many(:addresses) }
+        it { should have_many(:addresses).class_name("Address::Record").with_foreign_key("county_id") }
+        it { should have_many(:people).through(:addresses) }
       end
     end
   end

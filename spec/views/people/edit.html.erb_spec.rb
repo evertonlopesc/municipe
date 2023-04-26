@@ -1,17 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "people/edit", type: :view do
-  let(:person) {
-    Person.create!(
-      full_name: "MyString",
-      cpf: "MyString",
-      cns: "MyString",
-      email: "MyString",
-      phone: "MyString",
-      status: "MyString",
-      address: nil
-    )
-  }
+  let(:person) { FactoryBot.create(:person) }
 
   before(:each) do
     assign(:person, person)

@@ -5,7 +5,7 @@ module Address
     self.table_name = 'addresses'
 
     belongs_to :county, class_name: '::County::Record'
-    has_many :people
+    has_many :people, class_name: '::Person::Record', foreign_key: 'address_id'
 
     enum status: { active: 'Active', inactive: 'Inativo' }, _default: :active
 

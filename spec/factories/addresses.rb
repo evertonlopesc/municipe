@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :address, class: Address::Record do
-    cep { "00000000" }
-    street { "Rua pertim de casa" }
-    number { "123-A" }
+    cep { Faker::Number.number(digits: 8) }
+    street { Faker::Address.street_name }
+    number { Faker::Address.building_number }
     complement { "S/A" }
-    neighborhood { "Aquele" }
+    neighborhood { Faker::Address.city }
     status { "Active" }
     county { association :county }
   end
