@@ -1,0 +1,25 @@
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/BlockComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - ".git/**/*"
+    - "config/**/*"
+    - "bin/**/*"
+    - "Rakefile"
+    - "db/**/*"
+    - "spec/rails_helper"
