@@ -1,0 +1,8 @@
+<div id="<%= dom_id county %>">
+  <td><%= county.name %></td>
+  <td><%= county.id_ibge %></td>
+  <td><%= county.state %></td>
+  <td><%= county.status %></td>
+  <td><%= county.people.size %></td>
+  <td><%= link_to "Show this county", county_path(county) %></td>
+</div>

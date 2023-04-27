@@ -1,0 +1,40 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Counties</h1>
+
+<div>
+  Search
+  <div>
+    <%= form_with url: "/counties", method: :get do |form| %>
+      <%= form.text_field :name, placeholder: "by Name" %>
+      <%= form.text_field :state, placeholder: "by State" %>
+      <%= form.submit "Search" %>
+    <% end %>
+  </div>
+</div>
+
+<div id="counties">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Id_IBGE</th>
+        <th>State</th>
+        <th>Status</th>
+        <th>Total people</th>
+        <th> - </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @counties.each do |county| %>
+        <tr>
+          <%= render partial: "counties", locals: { county: county } %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%== pagy_nav(@pagy) %>
+</div>
+
+<%= link_to "New county", new_county_path %>

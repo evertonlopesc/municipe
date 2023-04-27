@@ -1,0 +1,14 @@
+<h1>Editing county</h1>
+
+<%=
+  render(
+    partial: "form",
+    locals: { county: @county, path: county_path(@county), scope: :county }
+  )
+%>
+
+<br>
+
+<div>
+  <%= link_to "Back to counties", counties_path %>
+</div>

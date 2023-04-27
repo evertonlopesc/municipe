@@ -1,0 +1,48 @@
+<div id="<%= dom_id county %>">
+  <p>
+    <strong>Name:</strong>
+    <%= county.name %>
+  </p>
+
+  <p>
+    <strong>Id_IBGE:</strong>
+    <%= county.id_ibge %>
+  </p>
+
+  <p>
+    <strong>State:</strong>
+    <%= county.state %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= county.status %>
+  </p>
+
+  <p>
+    <strong>People count:</strong>
+    <%= county.people.size %>
+  </p>
+
+  <p>
+    <strong>People</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @people.each do |person| %>
+          <tr>
+            <td><%= person.full_name %></td>
+            <td><%= person.email %></td>
+            <td><%= person.address.street %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </p>
+</div>
