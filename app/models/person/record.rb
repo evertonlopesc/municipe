@@ -5,10 +5,7 @@ module Person
     belongs_to :address, class_name: "Address::Record"
     has_one :county, class_name: "County::Record", through: :address
 
-    enum status: {
-      active: "Ativo",
-      inactive: "Inativo"
-    }, _default: :active
+    enum status: { active: "Ativo", inactive: "Inativo" }, _default: :active
 
     validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
     validates_length_of :cns, is: 15

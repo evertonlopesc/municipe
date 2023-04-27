@@ -1,12 +1,10 @@
 <h1>Editing person</h1>
 
-<%= render(
-  partial: "form",
-  locals: {
-    person: @person,
-    path: person_path(@person),
-    scope: :person,
-  })
+<%=
+  render(
+    partial: "form",
+    locals: { person: @person, path: person_path(@person), scope: :person, }
+  )
 %>
 
 <br>
