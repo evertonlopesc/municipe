@@ -1,0 +1,37 @@
+<%= form_with(model: county, url: path, scope: scope) do |form| %>
+  <% if county.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(county.errors.count, "error") %> prohibited this county from being saved:</h2>
+
+      <ul>
+        <% county.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :id_ibge, style: "display: block" %>
+    <%= form.text_field :id_ibge %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
