@@ -59,26 +59,24 @@ RSpec.describe "/people", type: :request do
         }.to change(Person::Record, :count).by(0)
       end
 
-
       it "renders a response with 422 status (i.e. to display the 'new' template)" do
         post people_url, params: { person: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-
     end
   end
 
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { full_name: "Name updated" }
       }
 
       it "updates the requested person" do
         person = Person::Record.create! valid_attributes
         patch person_url(person), params: { person: new_attributes }
         person.reload
-        skip("Add assertions for updated state")
+        expect(person.full_name).to eq("Name updated")
       end
 
       it "redirects to the person" do
@@ -90,13 +88,11 @@ RSpec.describe "/people", type: :request do
     end
 
     context "with invalid parameters" do
-
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         person = Person::Record.create! valid_attributes
         patch person_url(person), params: { person: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-
     end
   end
 
