@@ -11,6 +11,12 @@ Documentation:
 Layout/EndOfLine:
   Enabled: false
 
+Style/BlockDelimiters:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude: "spec/**"
+
 AllCops:
   NewCops: enable
   Exclude:
