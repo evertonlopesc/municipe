@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this person", edit_person_path(@person) %> |
-  <%= link_to "Back to people", people_path %>
+  <%= link_to "Back to county", county_path(@person.county) %>
 
   <%= button_to "Destroy this person", person_path(@person), method: :delete %>
 </div>
