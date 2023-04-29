@@ -2,9 +2,7 @@
 
 <h1>People</h1>
 
-<%= link_to "New person", new_person_path %>
-
-<%= link_to "List inactive person", inactives_people_path %>
+<%= link_to "Back people", people_path %>
 
 <div id="people">
   <table>
@@ -23,7 +21,7 @@
     <tbody>
       <% @people.each do |person| %>
         <tr>
-          <%= render partial: "people", locals: { person: person } %>
+          <%= render partial: "person", locals: { person: person } %>
         </tr>
       <% end %>
 

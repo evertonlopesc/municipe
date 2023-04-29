@@ -5,11 +5,20 @@ class PeopleController < ApplicationController
 
   # GET /people or /people.json
   def index
-    @people = Person::Record.all
+    people = Person::Record.order_by_full_name
+
+    @pagy, @people = pagy(people)
   end
 
   # GET /people/1 or /people/1.json
   def show
+  end
+
+  # GET /counties/inactive
+  def inactives
+    people = Person::Record.list_inactive_people
+
+    @pagy, @people = pagy(people)
   end
 
   # GET /people/new
@@ -51,10 +60,10 @@ class PeopleController < ApplicationController
 
   # DELETE /people/1 or /people/1.json
   def destroy
-    @person.destroy
+    @person.inactive!
 
     respond_to do |format|
-      format.html { redirect_to people_url, notice: "Person was successfully destroyed." }
+      format.html { redirect_to people_url, notice: "Person was successfully inactive." }
       format.json { head :no_content }
     end
   end

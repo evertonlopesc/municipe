@@ -101,7 +101,14 @@ RSpec.describe "/people", type: :request do
       person = Person::Record.create! valid_attributes
       expect {
         delete person_url(person)
-      }.to change(Person::Record, :count).by(-1)
+      }.to change(Person::Record, :count).by(0)
+    end
+
+    it "person change to inactive" do
+      person = Person::Record.create! valid_attributes
+      delete person_url(person)
+      person.reload
+      expect(person.status).to eq("inactive")
     end
 
     it "redirects to the people list" do

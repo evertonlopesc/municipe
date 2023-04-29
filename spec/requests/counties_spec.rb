@@ -105,7 +105,14 @@ RSpec.describe "/counties", type: :request do
       county = County::Record.create! valid_attributes
       expect {
         delete county_url(county)
-      }.to change(County::Record, :count).by(-1)
+      }.to change(County::Record, :count).by(0)
+    end
+
+    it "county change to inactive" do
+      county = County::Record.create! valid_attributes
+      delete county_url(county)
+      county.reload
+      expect(county.status).to eq("inactive")
     end
 
     it "redirects to the people list" do
