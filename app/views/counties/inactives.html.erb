@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Counties</h1>
+<h1>Inactive Counties</h1>
 
-<%= link_to "New county", new_county_path %>
-<%= link_to "Inactive counties", inactives_counties_path %>
+<%= link_to "Back counties", counties_path %>
 
 <div>
   Search
   <div>
-    <%= form_with url: "/counties", method: :get do |form| %>
+    <%= form_with url: "/counties/inactives/", method: :get do |form| %>
       <%= form.text_field :name, placeholder: "by Name" %>
       <%= form.text_field :state, placeholder: "by State" %>
       <%= form.submit "Search" %>

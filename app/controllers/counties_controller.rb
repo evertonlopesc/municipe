@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CountiesController < ApplicationController
-  before_action :set_county, only: [:show, :edit, :update, :destroy]
+  before_action :set_county, only: %i[show edit update destroy]
 
   # GET /counties or /counties.json
   def index
@@ -9,6 +9,12 @@ class CountiesController < ApplicationController
     counties = counties.filter_by_name(params[:name]) if params[:name].present?
     counties = counties.filter_by_state(params[:state]) if params[:state].present?
 
+    @pagy, @counties = pagy(counties)
+  end
+
+  # GET /counties/inactive
+  def inactives
+    counties = County::Record.list_inactive_counties
 
     @pagy, @counties = pagy(counties)
   end
@@ -48,9 +54,9 @@ class CountiesController < ApplicationController
 
   # DELETE /counties/1 or /counties/1.json
   def destroy
-    @county.destroy
+    @county.inactive!
 
-    redirect_to counties_url, notice: "County was successfully destroyed."
+    redirect_to counties_url, notice: "County was successfully inactive."
   end
 
   private

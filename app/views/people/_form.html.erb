@@ -43,7 +43,7 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, Person::Record.statuses.values %>
   </div>
 
   <div>

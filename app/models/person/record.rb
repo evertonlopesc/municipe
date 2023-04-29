@@ -16,6 +16,9 @@ module Person
     validate :birthday_less_than_today
     validate :cns_allowed
 
+    scope :order_by_full_name, -> { active.order(:full_name) }
+    scope :list_inactive_people, -> { inactive.order(:full_name) }
+
     private
 
     def birthday_less_than_today
