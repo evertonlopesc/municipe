@@ -1,0 +1,10 @@
+<div id="<%= dom_id address %>">
+  <tr>
+    <td><%= address.street %></td>
+    <td><%= address.number %></td>
+    <td><%= address.neighborhood %></td>
+    <td><%= address.status %></td>
+    <td><%= address.people.size %></td>
+    <td><%= link_to "Show", address_path(address.id) %></td>
+  </tr>
+</div>

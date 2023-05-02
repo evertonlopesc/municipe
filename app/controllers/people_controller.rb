@@ -14,7 +14,7 @@ class PeopleController < ApplicationController
   def show
   end
 
-  # GET /counties/inactive
+  # GET /people/inactive
   def inactives
     people = Person::Record.list_inactive_people
 
@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
 
   # POST /people or /people.json
   def create
-    @person = Person::Record.new(person_params)
+    @person = Person::Record.find_or_initialize_by(person_params)
 
     respond_to do |format|
       if @person.save
@@ -55,16 +55,6 @@ class PeopleController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /people/1 or /people/1.json
-  def destroy
-    @person.inactive!
-
-    respond_to do |format|
-      format.html { redirect_to people_url, notice: "Person was successfully inactive." }
-      format.json { head :no_content }
     end
   end
 

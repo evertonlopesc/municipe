@@ -5,6 +5,8 @@
 <%= link_to "New county", new_county_path %>
 <%= link_to "Inactive counties", inactives_counties_path %>
 
+<hr>
+
 <div>
   Search
   <div>
@@ -16,6 +18,8 @@
   </div>
 </div>
 
+<hr>
+
 <div id="counties">
   <table>
     <thead>
@@ -23,9 +27,9 @@
         <th>Name</th>
         <th>Id_IBGE</th>
         <th>State</th>
-        <th>Status</th>
-        <th>Total people</th>
-        <th> - </th>
+        <th>Addresses</th>
+        <th>People</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +40,5 @@
       <% end %>
     </tbody>
   </table>
-
   <%== pagy_nav(@pagy) %>
 </div>

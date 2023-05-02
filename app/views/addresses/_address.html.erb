@@ -1,0 +1,45 @@
+<div id="<%= dom_id address %>">
+  <div style="margin-bottom: 10px;">
+    <strong>CEP:</strong>
+    <%= address.cep %>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <span>
+      <strong>Street:</strong>
+      <%= address.street %>
+    </span>
+    <span>
+      <strong>Number:</strong>
+      <%= address.number %>
+    </span>
+    <span>
+      <strong>Complement:</strong>
+      <%= address.complement %>
+    </span>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <span>
+      <strong>Neighborhood:</strong>
+      <%= address.neighborhood %>
+    </span>
+    <span>
+      <strong>Status:</strong>
+      <%= address.status %>
+    </span>
+    <span>
+      <strong>County:</strong>
+      <%= address.county.name %>
+    </span>
+  </div>
+
+  <div style="display: flex;">
+    <span style="margin-right: 10px;">
+      <%= link_to "Edit this address", edit_address_path(address) %>
+    </span>
+    <span style="margin-right: 10px;">
+      <%= link_to "Back to counties", county_path(address.county_id) %>
+    </span>
+  </div>
+</div>

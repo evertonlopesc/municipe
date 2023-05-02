@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "counties#index"
 
+  resources :addresses do
+    get "inactives", on: :collection
+  end
+
   resources :counties do
     get "inactives", on: :collection
   end

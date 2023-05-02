@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
+<strong style="font-size: 36px">Person</strong>
+
 <%= render partial: "person", locals: { person: @person } %>
 
 <div>
   <%= link_to "Edit this person", edit_person_path(@person) %> |
-  <%= link_to "Back to county", county_path(@person.county) %>
-
-  <%= button_to "Destroy this person", person_path(@person), method: :delete %>
+  <%= link_to "Back to address", address_path(@person.address) %>
 </div>

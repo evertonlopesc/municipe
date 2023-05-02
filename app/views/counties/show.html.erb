@@ -1,10 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
+<strong style="font-size: 36px">County</strong>
+
 <%= render partial: "county", locals: { county: @county } %>
 
-<div>
-  <%= link_to "Edit this county", edit_county_path(@county) %>
-  <%= link_to "Back to counties", counties_path %>
+<hr>
 
-  <%= button_to "Destroy this county", county_path(@county), method: :delete %>
-</div>
+<%= render partial: "addresses/addresses", locals: { county: @county } %>

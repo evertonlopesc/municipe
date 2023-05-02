@@ -6,8 +6,8 @@ class CountiesController < ApplicationController
   # GET /counties or /counties.json
   def index
     counties = County::Record.order_by_state_and_name
-    counties = counties.filter_by_name(params[:name]) if params[:name].present?
-    counties = counties.filter_by_state(params[:state]) if params[:state].present?
+    counties = counties.search_by_name(params[:name]) if params[:name].present?
+    counties = counties.search_by_state(params[:state]) if params[:state].present?
 
     @pagy, @counties = pagy(counties)
   end
@@ -21,7 +21,10 @@ class CountiesController < ApplicationController
 
   # GET /counties/1 or /counties/1.json
   def show
-    @people = @county.people
+    addresses = @county.addresses
+    addresses = addresses.search_by_street(params[:street]) if params[:street].present?
+
+    @pagy, @addresses = pagy(addresses)
   end
 
   # GET /counties/new
@@ -35,7 +38,7 @@ class CountiesController < ApplicationController
 
   # POST /counties or /counties.json
   def create
-    @county = County::Record.new(county_params)
+    @county = County::Record.find_or_initialize_by(county_params)
     if @county.save
       redirect_to county_url(@county), notice: "County was successfully created."
     else
@@ -50,13 +53,6 @@ class CountiesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
-  end
-
-  # DELETE /counties/1 or /counties/1.json
-  def destroy
-    @county.inactive!
-
-    redirect_to counties_url, notice: "County was successfully inactive."
   end
 
   private

@@ -2,7 +2,7 @@
   <td><%= county.name %></td>
   <td><%= county.id_ibge %></td>
   <td><%= county.state %></td>
-  <td><%= county.status.humanize %></td>
+  <td><%= county.addresses.size %></td>
   <td><%= county.people.size %></td>
-  <td><%= link_to "Show this county", county_path(county) %></td>
+  <td><%= link_to "Show", county_path(county) %></td>
 </div>

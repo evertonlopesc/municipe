@@ -1,51 +1,32 @@
 <div id="<%= dom_id county %>">
-  <p>
-    <strong>Name:</strong>
-    <%= county.name %>
-  </p>
+  <div style="margin-bottom: 10px;">
+    <div style="padding: 5px">
+      <strong>Id_IBGE:</strong>
+      <%= county.id_ibge %>
+    </div>
 
-  <p>
-    <strong>Id_IBGE:</strong>
-    <%= county.id_ibge %>
-  </p>
+    <span style="padding: 5px">
+      <strong>Name:</strong>
+      <%= county.name %>
+    </span>
 
-  <p>
-    <strong>State:</strong>
-    <%= county.state %>
-  </p>
+    <span style="padding: 5px">
+      <strong>State:</strong>
+      <%= county.state %>
+    </span>
 
-  <p>
-    <strong>Status:</strong>
-    <%= county.status.humanize %>
-  </p>
+    <span style="padding: 5px">
+      <strong>Status:</strong>
+      <%= county.status.humanize %>
+    </span>
+  </div>
 
-  <p>
-    <strong>People count:</strong>
-    <%= county.people.size %>
-  </p>
-
-  <p>
-    <strong>People</strong>
-    <%= link_to "New person", new_person_path %>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>E-mail</th>
-          <th>CNS</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @people.each do |person| %>
-          <tr>
-            <td><%= person.full_name %></td>
-            <td><%= person.email %></td>
-            <td><%= person.cns %></td>
-            <td><%= link_to "Show person", person_url(person) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </p>
+  <div style="display: flex;">
+    <span style="margin-right: 10px;">
+      <%= link_to "Edit this county", edit_county_path(county) %>
+    </span>
+    <span style="margin-right: 10px;">
+      <%= link_to "Back to counties", counties_path %>
+    </span>
+  </div>
 </div>

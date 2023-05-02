@@ -1,0 +1,19 @@
+<h1>Editing address</h1>
+
+<%=
+  render(
+    partial: "form",
+    locals: {
+      address: @address,
+      county_id: @address.county_id,
+      path: addresses_path(@address),
+      scope: :address
+    }
+  )
+%>
+
+<br>
+
+<div>
+  <%= link_to "Back to address", address_path(@address) %>
+</div>

@@ -16,8 +16,11 @@ module Person
     validate :birthday_less_than_today
     validate :cns_allowed
 
-    scope :order_by_full_name, -> { active.order(:full_name) }
     scope :list_inactive_people, -> { inactive.order(:full_name) }
+    scope :order_by_full_name, -> { active.order(:full_name) }
+    scope :search_by_cns, ->(cns) { where("LOWER(cns) like ?", "%#{cns.downcase}%") }
+    scope :search_by_email, ->(email) { where("LOWER(email) like ?", "%#{email.downcase}%") }
+    scope :search_by_fullname, ->(fullname) { where("LOWER(full_name) like ?", "%#{fullname.downcase}%") }
 
     private
 

@@ -11,8 +11,8 @@ module County
     validates_numericality_of :id_ibge, only_integer: true
     validates_presence_of :id_ibge, :name, :state
 
-    scope :filter_by_name, ->(name) { where(name: name) }
-    scope :filter_by_state, ->(state) { where(state: state) }
+    scope :search_by_name, ->(name) { where(name: name) }
+    scope :search_by_state, ->(state) { where(state: state) }
     scope :list_inactive_counties, -> { inactive.order(:state, :name) }
     scope :order_by_state_and_name, -> { active.order(:state, :name) }
   end
