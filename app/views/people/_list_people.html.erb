@@ -1,10 +1,8 @@
 <div id="<%= dom_id person %>">
   <td><%= person.full_name %></td>
-  <td><%= person.cpf %></td>
   <td><%= person.cns %></td>
   <td><%= person.email %></td>
   <td><%= person.birthday %></td>
   <td><%= person.phone %></td>
-  <td><%= person.status.humanize %></td>
-  <td><%= link_to "Show", person_path(person) %></td>
+  <td><%= link_to "Show", person_url(person) %></td>
 </div>

@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<strong style="font-size: 36px">Address</strong>
+
+<%= render partial: "addresses/address", locals: { address: @address } %>
+
+<strong style="font-size: 36px">People</strong>
+
+<table>
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>CNS</th>
+      <th>E-mail</th>
+      <th>Birthday</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @address.people.each do |person| %>
+      <tr>
+        <%= render partial: "people/list_people", locals: { person: person } %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%== pagy_nav(@pagy) %>

@@ -1,0 +1,37 @@
+<div id="<%= dom_id county %>">
+  <div>
+    <span><strong style="font-size: 36px">Address</strong></span>
+    <span><%= link_to "New Address", new_address_path(county_id: county.id) %></span>
+  </div>
+
+  <div>
+    Search
+    <div>
+      <%= form_with url: "/counties/#{county.id}", method: :get do |form| %>
+        <%= form.text_field :street, placeholder: "by Street" %>
+        <%= form.submit "Search" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Street</th>
+          <th>Number</th>
+          <th>Neighborhood</th>
+          <th>Status</th>
+          <th>People</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @addresses.each do |address| %>
+          <%= render partial: "addresses/list_address", locals: { address: address } %>
+        <% end %>
+      </tbody>
+    </table>
+    <%== pagy_nav(@pagy) %>
+  </div>
+</div>
