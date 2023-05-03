@@ -6,7 +6,7 @@
 
 <div>
   <strong style="font-size: 36px">People</strong>
-  <%= link_to "New person", new_person_path %>
+  <%= link_to "New person", new_person_path(address_id: @address.id) %>
 </div>
 
 <table>
