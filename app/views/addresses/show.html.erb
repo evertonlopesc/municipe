@@ -4,7 +4,10 @@
 
 <%= render partial: "addresses/address", locals: { address: @address } %>
 
-<strong style="font-size: 36px">People</strong>
+<div>
+  <strong style="font-size: 36px">People</strong>
+  <%= link_to "New person", new_person_path %>
+</div>
 
 <table>
   <thead>

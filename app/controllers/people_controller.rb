@@ -23,6 +23,7 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
+    @address = params[:address_id]
     @person = Person::Record.new
   end
 

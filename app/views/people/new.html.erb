@@ -3,7 +3,12 @@
 <%=
   render(
     partial: "form",
-    locals: { person: @person, path: people_path, scope: :person }
+    locals: {
+      person: @person,
+      address: @address,
+      path: people_path,
+      scope: :person
+    }
   )
 %>
 
