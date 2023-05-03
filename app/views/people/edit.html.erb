@@ -5,6 +5,7 @@
     partial: "form",
     locals: {
       person: @person,
+      address: @person.address_id,
       path: person_path(@person),
       scope: :person
     }
@@ -15,5 +16,5 @@
 
 <div>
   <%= link_to "Show", person_path(@person) %> |
-  <%= link_to "Back to address", county_path(@person.address) %>
+  <%= link_to "Back to address", address_path(@person.address) %>
 </div>
