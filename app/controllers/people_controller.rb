@@ -3,6 +3,12 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: %i[ show edit update destroy ]
 
+  def index
+    people = Person::Record.order_by_full_name
+
+    @pagy, @people = pagy(people)
+  end
+
   # GET /people/1 or /people/1.json
   def show
   end
@@ -16,7 +22,6 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @address = params[:address_id]
     @person = Person::Record.new
   end
 

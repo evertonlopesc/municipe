@@ -5,7 +5,6 @@
     partial: "form",
     locals: {
       address: @address,
-      county_id: @address.county_id,
       path: addresses_path(@address),
       scope: :address
     }
@@ -15,5 +14,5 @@
 <br>
 
 <div>
-  <%= link_to "Back to address", address_path(@address) %>
+  <%= link_to "Back to address", edit_address_path(@address) %>
 </div>

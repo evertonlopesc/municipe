@@ -5,7 +5,7 @@ FactoryBot.define do
     number { Faker::Address.building_number }
     complement { "S/A" }
     neighborhood { Faker::Address.city }
-    status { "Active" }
+    status { :active }
     county { association :county }
   end
 end

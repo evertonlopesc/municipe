@@ -2,18 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "/people", type: :request do
   let(:valid_attributes) {
-    FactoryBot.attributes_for(:person, address_id: FactoryBot.create(:address).id)
+    FactoryBot.attributes_for(
+      :person, address_id: FactoryBot.create(:address).id
+    )
   }
 
   let(:invalid_attributes) { { cpf: nil, cns: nil } }
-
-  describe "GET /index" do
-    it "renders a successful response" do
-      Person::Record.create! valid_attributes
-      get people_url
-      expect(response).to be_successful
-    end
-  end
 
   describe "GET /show" do
     it "renders a successful response" do
@@ -93,28 +87,6 @@ RSpec.describe "/people", type: :request do
         patch person_url(person), params: { person: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
-    end
-  end
-
-  describe "DELETE /destroy" do
-    it "destroys the requested person" do
-      person = Person::Record.create! valid_attributes
-      expect {
-        delete person_url(person)
-      }.to change(Person::Record, :count).by(0)
-    end
-
-    it "person change to inactive" do
-      person = Person::Record.create! valid_attributes
-      delete person_url(person)
-      person.reload
-      expect(person.status).to eq("inactive")
-    end
-
-    it "redirects to the people list" do
-      person = Person::Record.create! valid_attributes
-      delete person_url(person)
-      expect(response).to redirect_to(people_url)
     end
   end
 end

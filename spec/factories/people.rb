@@ -19,7 +19,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     birthday { (Date.current - 1.day) }
     phone { Faker::PhoneNumber.cell_phone }
-    status { "Ativo" }
+    status { :active }
     address { association :address }
   end
 end

@@ -3,6 +3,6 @@ FactoryBot.define do
     name { "Fortaleza" }
     id_ibge { "1100085" }
     state { "Ceará" }
-    status { "active" }
+    status { :active }
   end
 end
