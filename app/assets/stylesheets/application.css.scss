@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "font-awesome";
+
+$background: white;
+$color_primary: #50A2F2;
+$color_primary_hover: #0787F2;
+
+body {
+  margin: 0px;
+  background-color: $background;
+  font-family: "Noto+Serif", sans-serif;;
+}
+
+hr {
+  color: $color_primary_hover;
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+}
+a:link {
+  color: black;
+}
+a:hover {
+  color: $color_primary_hover;
+}
+
+// Header
+.header-title {
+  margin: 20px;
+  text-align: center;
+}
+
+.nav-header {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: $color_primary;
+    text-align: center;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 14px 25px;
+    background-color: $color_primary;
+    color: black;
+  }
+  a:hover {
+    background-color: $color_primary_hover;
+  }
+}
+// End header
+
+// Main
+.main-container {
+  margin: auto;
+  max-width: 800px;
+}
+// End main
+
+// Titles
+.main {
+  position: relative;
+  width: 50%;
+  height: 50px;
+}
+.title {
+  position: absolute;
+  font-size: 35px;
+  font-weight: bold;
+  color: black;
+  margin: 5px 0 0 0;
+}
+.icon {
+  position: absolute;
+  margin-top: 18px;
+  margin-left: 38%;
+}
+.sub {
+  font-size: 30px;
+}
+.sub-icon {
+  margin-top: 19px;
+  margin-left: 40%;
+}
+.address {
+  margin-top: 20px;
+  margin-left: 45%;
+}
+.county {
+  margin-top: 10px;
+  margin-left: 34%;
+}
+// End titles
+
+// Forms
+.form-text {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+// End Forms

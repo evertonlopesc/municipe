@@ -1,0 +1,33 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "font-awesome";
+
+$table: #0787F2;
+$table_background: #EAF5FF;
+$table_row: #50A2F2;
+$table_row_child: white;
+
+table {
+  border: 2px solid $table;
+  border-collapse:  collapse;
+  width: 100%;
+  margin-bottom: 15px;
+  background-color: $table_background;
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  tr:nth-child(even) {
+    background-color: $table_row_child;
+  }
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $table_row;
+    color: white;
+  }
+}

@@ -1,0 +1,97 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
+$button_primary: #50A2F2;
+$button_primary_hover: #0787F2;
+$button_secundary: #D1D4E8;
+$button_secundary_hover: #99A1CF;
+$button_cancel: #FA3200;
+$button_cancel_hover: #E3250B;
+$button_confirm: #97F863;
+$button_confirm_hover: #57D957;
+
+.buttons-actions {
+  margin-top: 50px;
+}
+
+.button {
+  color: black;
+  padding: 14px 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.primary {
+  background-color: $button_primary;
+  font-size: 18px;
+}
+.primary:hover {
+  color: black;
+  background-color: $button_primary_hover;
+}
+.secundary {
+  background-color: $button_secundary;
+  font-size: 18px;
+}
+.secundary:hover {
+  color: black;
+  background-color: $button_secundary_hover;
+}
+.cancel {
+  background-color: $button_cancel;
+}
+.cancel:hover {
+  background-color: $button_cancel_hover;
+}
+.confirm {
+  background-color: $button_confirm;
+}
+.confirm:hover {
+  background-color: $button_confirm_hover;
+}
+.search {
+  background-color: $button_primary;
+  border: 0px;
+  padding: 10px 19px;
+}
+.search:hover {
+  background-color: $button_primary_hover;
+}
+.new {
+  padding: 8px 17px;
+  background-color: $button_primary;
+  border: 0px;
+}
+.new:hover {
+  background-color: $button_primary_hover;
+  color: black;
+}
+.edit {
+  padding: 8px 17px;
+  background-color: $button_primary;
+  border: 0px;
+}
+.edit:hover {
+  background-color: $button_primary_hover;
+  color: black;
+}
+.sub-edit {
+  padding: 5px 14px;
+  background-color: $button_primary;
+  border: 0px;
+}
+.sub-edit:hover {
+  background-color: $button_primary_hover;
+  color: black;
+}
+.sub-show {
+  position: absolute;
+  border: 0px;
+  padding: 5px 14px;
+  background-color: $button_primary;
+}
+.sub-show:hover {
+  background-color: $button_primary_hover;
+  color: black;
+}

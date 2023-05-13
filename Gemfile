@@ -43,7 +43,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
+
+# Font Awesome has an official Ruby on Rails [https://fontawesome.com/docs/web/use-with/ruby-on-rails].
+gem "font-awesome-sass", "~> 6.4.0"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
